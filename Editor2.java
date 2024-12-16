@@ -11,7 +11,7 @@ public class Editor2 {
 
 	public static void main (String[] args){
 		//// Replace this comment with your code.
-		//// This function is similar to the main function of Editor1.java	
+		//// This function is similar to the main function of Editor1.java
 		String fileName = args[0];
 		int height = Integer.parseInt(args[1]);
 		int width = Integer.parseInt(args[2]);
@@ -20,6 +20,6 @@ public class Editor2 {
 		Runigram.setCanvas(imageOut);
 		Runigram.display(Runigram.scaled(imageIn,width,height));
 		StdDraw.pause(3000); 
-		Runigram.display(imageOut);								
+		Runigram.display(imageOut);		
 	}
 }

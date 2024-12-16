@@ -9,31 +9,19 @@ public class Runigram {
 		
 		// Tests the reading and printing of an image:	
 		Color[][] tinypic = read("tinypic.ppm");
-		// print(tinypic);
-		// display(tinypic);
+		print(tinypic);
+
 		// Creates an image which will be the result of various 
 		// image processing operations:
 		Color[][] image;
 
 		// Tests the horizontal flipping of an image:
-		// image = flippedHorizontally(tinypic);
-		// System.out.println();
-		// print(image);
+		image = flippedHorizontally(tinypic);
+		System.out.println();
+		print(image);
 		
 		//// Write here whatever code you need in order to test your work.
 		//// You can continue using the image array.
-		Color [][] test = read("ironman.ppm");
-		Color [][] test2 = read("eyes.ppm");
-		// Color [][] test3 = scaled(read("ironman.ppm"), 1000, 1000) ;
-		setCanvas(scaled(test, 200, 400));
-		// print(test);
-		// display(blend(test2, test3, 20));
-		// display(flippedHorizontally(test));
-		// display(flippedVertically(test));
-		// display(grayScaled(test));
-		// setCanvas(scaled(test, 200, 400));
-		 display(scaled(test, 200, 400));
-		//morph(test, test2, 3);
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -77,8 +65,8 @@ public class Runigram {
 	private static void print(Color[][] image) {
 		//// Replace this comment with your code
 		//// Notice that all you have to so is print every element (i,j) of the array using the print(Color) function.
-		for(int i =0;i<image[0].length;i++) {
-			for(int j=0;j<image.length;j++) {
+		for(int i =0;i<image.length;i++) {
+			for(int j=0;j<image[0].length;j++) {
 				print(image[i][j]);
 			}
 			System.out.println();
@@ -129,7 +117,7 @@ public class Runigram {
 		double blue = pixel.getBlue()*0.114;
 		int lum = (int) (red + green + blue);
 		Color luma = new Color(lum,lum,lum);
-		return luma;
+		return luma;	
 	}
 	
 	/**
@@ -173,9 +161,9 @@ public class Runigram {
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
 		//// Replace the following statement with your code
-		int red = (int) ((c1.getRed() * alpha/100) + ((1-(alpha/100))*c2.getRed()));
-		int green = (int) ((c1.getGreen() * alpha/100) + ((1-alpha/100)*c2.getGreen()));
-		int blue = (int) ((c1.getBlue() * alpha/100) + ((1-alpha/100)*c2.getBlue()));
+		int red = (int) ((c1.getRed() * alpha) + ((1-(alpha))*c2.getRed()));
+		int green = (int) ((c1.getGreen() * alpha) + ((1-alpha)*c2.getGreen()));
+		int blue = (int) ((c1.getBlue() * alpha) + ((1-alpha)*c2.getBlue()));
 		return new Color(red,green,blue);
 	}
 	
@@ -207,7 +195,6 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
-		//// Replace this comment with your code
 		int width = source[0].length;
 		int height = source.length;
 		target = scaled(target, width, height);
